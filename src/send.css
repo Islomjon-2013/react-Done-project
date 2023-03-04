@@ -1,0 +1,20 @@
+body {
+  background-image: url(./assets/2.jpeg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.container {
+  max-width: 1100px;
+  margin: 100px auto;
+}
+.btn__group {
+  display: flex;
+  justify-content: space-between;
+}
+.btn__group button {
+  width: 300px;
+  height: 40px;
+  border-radius: 100px;
+  color: white;
+  background: green;
+}
