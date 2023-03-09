@@ -38,9 +38,15 @@ const See = () => {
               </Button>
             </div>
             <div className="card__box">
-              <h2>Product id:{data?.id}</h2>
-              <h2>Product name:{data?.name}</h2>
-              <h2>Product price:{data?.price}</h2>
+              <h2>
+                Product id: <span>{data?.id}</span>{" "}
+              </h2>
+              <h2>
+                Product name: <span>{data?.name}</span>
+              </h2>
+              <h2>
+                Product price:<span>{data?.price}</span>
+              </h2>
             </div>
           </div>
         </div>

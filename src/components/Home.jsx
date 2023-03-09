@@ -78,7 +78,6 @@ const Home = () => {
   useEffect(() => {
     if (!token) navigate("/login");
   }, []);
-
   return (
     <div className="product">
       <div className="container">
@@ -86,81 +85,74 @@ const Home = () => {
           <Button onClick={logOut} variant="contained">
             Log out
           </Button>
+          <Button variant="contained">For name:</Button>
         </div>
         <div className="row box__product">
-          <div className="col-8 offset-2">
+          <div className="col-6 box-item">
             <h3 className="title">Product Name</h3>
-            <input
-              className="form-control mb-3 p-3"
-              ref={nomi}
-              type="text"
-              placeholder="Product name"
-            />
+            <input ref={nomi} type="text" className="form-control mb-3 p-3" />
+
             <h3 className="title">Product price</h3>
-            <input
-              className="form-control mb-3 p-3"
-              ref={narxi}
-              type="text"
-              placeholder="Product price"
-            />
+            <input ref={narxi} type="text" className="form-control mb-3 p-3" />
             <button onClick={sendData} className="btn btn-success">
               Send
             </button>
           </div>
-
-          <div className="col-8 offset-2">
-            <table class="table mt-5">
-              <thead>
-                <tr>
-                  <th>id</th>
-                  <th>nomi</th>
-                  <th>narxi</th>
-                  <th>edit</th>
-                  <th>delete</th>
-                  <th>see</th>
+        </div>
+      </div>
+      <div className="table-box">
+        <div className="table-box-item">
+          <table className="table mt-5">
+            <thead>
+              <tr>
+                <th>id</th>
+                <th>nomi</th>
+                <th>narxi</th>
+                <th>edit</th>
+                <th>delete</th>
+                <th>see</th>
+              </tr>
+            </thead>
+            <tbody>
+              {data?.map((item) => (
+                <tr key={item.id}>
+                  <td>{item.id}</td>
+                  <td>{item.name}</td>
+                  <td>{item.price}</td>
+                  <td>
+                    <button
+                      className="btn btn-warning mx-2"
+                      onClick={() => {
+                        editData(item);
+                      }}
+                    >
+                      edit
+                    </button>
+                  </td>
+                  <td>
+                    <button
+                      className="btn btn-danger mx-2"
+                      onClick={() => {
+                        deleteData(item.id);
+                      }}
+                    >
+                      delete
+                    </button>
+                  </td>
+                  <td>
+                    <button
+                      className="btn btn-secondary "
+                      onClick={() => {
+                        navigate(`/see/${item.id}`);
+                      }}
+                    >
+                      see
+                    </button>
+                  </td>
                 </tr>
-              </thead>
-              <tbody>
-                {data?.map((item) => (
-                  <tr key={item.id}>
-                    <td>{item.id}</td>
-                    <td>{item.name}</td>
-                    <td>{item.price}</td>
-                    <td>
-                      <button
-                        className="btn btn-warning mx-2"
-                        onClick={() => {
-                          editData(item);
-                        }}
-                      >
-                        edit
-                      </button>
-                    </td>
-                    <td>
-                      <button
-                        className="btn btn-danger mx-2"
-                        onClick={() => {
-                          deleteData(item.id);
-                        }}
-                      >
-                        delete
-                      </button>
-                    </td>
-                    <td>
-                      <button
-                        className="btn btn-secondary mx-2"
-                        onClick={() => {
-                          navigate(`/see/${item.id}`);
-                        }}
-                      >
-                        see
-                      </button>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+              ))}
+            </tbody>
+          </table>
         </div>
       </div>
     </div>

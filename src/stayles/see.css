@@ -34,3 +34,27 @@
   color: white;
   text-decoration: none;
 }
+h2 {
+  color: white;
+}
+span {
+  color: orange;
+  margin: 10px;
+}
+@media (max-width: 576px) {
+  .card__box {
+    max-width: 100%;
+    background-color: blue;
+  }
+  .card__box h2 {
+    font-size: 16px;
+  }
+
+  .btn__group button {
+    width: 300px;
+    border-radius: 20px;
+    margin: 0 20px 20px;
+    background-color: blue;
+    color: white;
+  }
+}
